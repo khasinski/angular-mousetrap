@@ -3,7 +3,7 @@
   "name": "angular-mousetrap",
   "description": "Angular Mousetrap directives, based on Angular UI Keypress",
   "version": "0.0.1",
-  "homepage": "",
+  "homepage": "https://github.com/khasinski/angular-mousetrap",
   "main": "./keypress/keypress.js",
   "dependencies": {
     "angular": ">= 1.0.2",
