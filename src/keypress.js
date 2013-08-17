@@ -10,7 +10,7 @@ factory('mousetrapHelper', ['$parse', function keypress($parse){
     params = scope.$eval(attrs['mousetrap'+capitaliseFirstLetter(mode)] || '{}');
     for (var binding in params) {
       (function(binding) {
-        Mousetrap.bind(binding, function(){ return scope.$apply(params[binding](scope, elm)); }, mode);
+        Mousetrap.bind(binding, function(e, combo){ return scope.$apply(params[binding](e, combo)); }, mode);
       })(binding);
     }
   };
