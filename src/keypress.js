@@ -1,3 +1,8 @@
+/*global angular:true, browser:true*/
+
+(function () {
+  'use strict';
+
 angular.module('mousetrap',[]).
 factory('mousetrapHelper', ['$parse', function keypress($parse){
 
@@ -39,3 +44,5 @@ angular.module('mousetrap').directive('mousetrapKeyup', ['mousetrapHelper', func
     }
   };
 }]);
+
+}());
