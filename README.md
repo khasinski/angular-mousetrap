@@ -18,6 +18,23 @@ HTML:
 ```html
 <span mousetrap-keypress="test">Press 'a' or 'b'</span>
 ```
+
+### Global bindings
+
+Global bindings require [Global Binding plugin](https://github.com/ccampbell/mousetrap/tree/master/plugins/global-bind).
+
+Example usage of global bindings:
+
+```javascript
+$scope.myKeybindings = {
+  bindGlobal: {
+    'ctrl+s': $scope.saveAction,
+    'command+s': $scope.saveAction
+  }
+  'ctrl+b': $scope.backAction
+};
+```
+
 ### Requirements
 
 * AngularJS v1.0.2+
