@@ -8,19 +8,29 @@ factory('mousetrapHelper', ['$parse', function keypress($parse){
 
   function capitaliseFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  } 
+  }
 
   return function(mode, scope, elm, attrs) {
     var params;
     params = scope.$eval(attrs['mousetrap'+capitaliseFirstLetter(mode)] || '{}');
+
     for (var binding in params) {
-      (function(binding) {
-        Mousetrap.bind(binding, function(e, combo){
-          return scope.$apply(function() {
-            $parse(params[binding])(e, combo);
-          }); 
-        }, mode);
-      })(binding);
+      if(params.bindGlobal) {
+        if(!angular.isFunction(Mousetrap.bindGlobal)) {
+          throw new Error('[angular-mousetrap] Could not find Mousetrap Global Bind plugin, is it included?');
+        }
+
+        for (var globalBinding in params.bindGlobal) {
+          (function(binding, params) {
+            Mousetrap.bindGlobal(binding, function(e, combo){ return scope.$apply(params[binding](e, combo)); }, mode);
+          })(globalBinding, params.bindGlobal);
+        }
+      }
+      else {
+        (function(binding, params) {
+          Mousetrap.bind(binding, function(e, combo){ return scope.$apply(params[binding](e, combo)); }, mode);
+        })(binding, params);
+      }
     }
   };
 }]);
