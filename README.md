@@ -1,5 +1,7 @@
 # Angular Mousetrap directives 
 
+[![Join the chat at https://gitter.im/khasinski/angular-mousetrap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/khasinski/angular-mousetrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is a very crude and probably buggy clone of Angular UI Keypress with [Mousetrap](http://craig.is/killing/mice) under the hood.
 
 ## Usage
