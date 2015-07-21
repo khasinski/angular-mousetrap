@@ -1,0 +1,3 @@
+notifications:
+  webhooks: http://getbadges.getbadg.es/api/app/webhook/252c2813-f9da-4cb3-92e4-294f3eef4ff3 
+
